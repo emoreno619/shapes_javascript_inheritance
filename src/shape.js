@@ -13,7 +13,7 @@ Shape.prototype.perimeter = function() {
 
 // Should return an assci version of the shape.  Since the shape
 // doesn't make sense here, we return a string.
-Shape.prototype.draw = function() {
+Shape.prototype.draw = function() {   
    return "A shape with " + this.sides + " sides";
 };
 
@@ -22,17 +22,26 @@ Shape.prototype.toString = function() {
 };
 
 Shape.prototype.getRGB = function() {
-  // Return the rgb value (as a string) for the color you've selected.
-  // You can have a preset list of colors that you switch on.
-  return "rgb(0,0,0)";
+ 	var result = "rgb(";
+ 		if(this.color == "red"){
+ 			result += "255,0,0)"
+ 		} else if (this.color == "blue"){
+ 			result += "0,0,255)"
+ 		} else if (this.color == "green"){
+ 			result += "0,255,0)"
+ 		} else {
+ 			str += "0,0,0)"
+ 		}
+
+  return result;
 }
 
-var s = new Shape(4, "red");
-console.log("value: " + s.perimeter());
-console.log(s.draw());
-console.log(s.toString());
-console.log(s.getRGB());
-console.log(s.area());
+// var s = new Shape(4, "red");
+// console.log("value: " + s.perimeter());
+// console.log(s.draw());
+// console.log(s.toString());
+// console.log(s.getRGB());
+// console.log(s.area());
 
 
-module.export = Shape;
+module.exports = Shape;
